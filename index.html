@@ -1,0 +1,824 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Pantakit Portfolio</title>
+<meta name="description" content="พอร์ตโฟลิโอ พันธกิจ พุฒขาว — Graphic Designer / Video Editor">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600&family=Archivo:wdth,wght@62..125,400..900&family=Kanit:wght@400;600;800&family=Pinyon+Script&display=swap">
+<style>
+/* Layout: a lookbook of framed "slides" on a black stage — giant extended caps, a script signature, one red disc. Single dark look by choice. */
+:root {
+  --ink: #0c0a0a;
+  --panel: #141010;
+  --paper: #f4efeb;
+  --muted: #a99f9a;
+  --red: #dc1a20;
+  --red-panel: #a80f15;
+  --line: rgba(244, 239, 235, .16);
+
+  --f-display: "Archivo", "Kanit", system-ui, sans-serif;
+  --f-thai: "Kanit", "Archivo", system-ui, sans-serif;
+  --f-body: "Anuphan", "Kanit", system-ui, sans-serif;
+  --f-script: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
+
+  --gutter: clamp(16px, 3vw, 36px);
+  --pad: clamp(20px, 4vw, 56px);
+  --maxw: 1280px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--ink); scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font: 400 16px/1.75 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+.page {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block: var(--gutter) 48px;
+  display: grid;
+  gap: clamp(12px, 1.6vw, 20px);
+}
+.stack { display: grid; gap: clamp(12px, 1.6vw, 20px); }
+.panel {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  overflow: clip;
+  padding: var(--pad);
+  min-width: 0;
+}
+
+/* shared type */
+.eyebrow {
+  font: 600 12px/1.4 var(--f-display);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.script { font-family: var(--f-script); font-weight: 400; letter-spacing: 0; text-transform: none; }
+.cap {
+  font: 900 clamp(28px, 4.6vw, 60px)/.92 var(--f-display);
+  font-variation-settings: "wdth" 125;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+}
+
+/* ───────────── HERO ───────────── */
+.hero {
+  --mega: clamp(40px, 11.6vw, 158px);
+  background: #000;
+  padding-bottom: 0;
+}
+.hero::before, .hero::after {           /* the thin frame rules from print layouts */
+  content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); z-index: 4; pointer-events: none;
+}
+.hero::before { left: calc(var(--pad) * .5); }
+.hero::after { right: calc(var(--pad) * .5); }
+
+.hero-nav {
+  position: relative; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-bottom: clamp(10px, 2vw, 22px);
+  border-bottom: 1px solid var(--line);
+}
+.hero-nav .mark { font: 400 28px/1 var(--f-script); color: var(--paper); text-decoration: none; text-transform: none; letter-spacing: 0; }
+.hero-nav ul { display: flex; gap: clamp(14px, 3vw, 36px); list-style: none; margin: 0; padding: 0; }
+.hero-nav a {
+  font: 600 12px/1 var(--f-display); letter-spacing: .16em; text-transform: uppercase;
+  text-decoration: none; color: var(--muted);
+}
+.hero-nav a:hover { color: var(--paper); }
+
+.stage {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 30%) 1fr;
+  grid-template-rows: auto 1fr;
+  position: relative;
+  margin-top: clamp(14px, 2.4vw, 30px);
+}
+.mega {
+  grid-column: 1 / -1; grid-row: 1;
+  display: flex; justify-content: center;
+  z-index: 1;
+  margin-inline: calc(var(--pad) * -1);
+  text-align: center;
+  white-space: nowrap;
+  font: 900 var(--mega)/.8 var(--f-display);
+  font-variation-settings: "wdth" 125;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  color: var(--paper);
+  animation: rise 1s cubic-bezier(.2, .7, .1, 1) both;
+}
+.disc {
+  grid-column: 1 / -1; grid-row: 1 / 3;
+  justify-self: center; align-self: end;
+  width: min(52%, 600px);
+  aspect-ratio: 2 / 1;
+  border-radius: 999px 999px 0 0;
+  background: var(--red);
+  z-index: 0;
+}
+.me {
+  grid-column: 2; grid-row: 1 / 3;
+  align-self: end;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  margin-top: calc(var(--mega) * -.42);
+  animation: rise 1.2s .12s cubic-bezier(.2, .7, .1, 1) both;
+}
+.hero-left, .hero-right {
+  grid-row: 2; align-self: end; z-index: 3;
+  padding-bottom: clamp(20px, 3.4vw, 44px);
+  min-width: 0;
+}
+.hero-left { grid-column: 1; padding-right: 12px; }
+.hero-right { grid-column: 3; padding-left: 12px; text-align: right; }
+.th-name { font: 800 clamp(24px, 2.8vw, 38px)/1.15 var(--f-thai); margin-top: 6px; }
+.role { font: 400 15px/1.5 var(--f-body); color: var(--muted); margin-top: 4px; max-width: 24ch; }
+.tally { display: flex; gap: clamp(14px, 2.2vw, 28px); margin: clamp(16px, 2.4vw, 28px) 0 0; }
+.tally div { display: grid; }
+.tally dd { margin: 0; order: -1; font: 900 clamp(24px, 2.6vw, 34px)/1 var(--f-display); font-variation-settings: "wdth" 110; font-variant-numeric: tabular-nums; }
+.tally dt { font-size: 13px; color: var(--muted); }
+.sig {
+  font: 400 clamp(54px, 7vw, 96px)/.9 var(--f-script);
+  color: var(--red);
+  margin-right: -.06em;
+}
+.lede { font-size: clamp(14px, 1.15vw, 16px); line-height: 1.75; max-width: 34ch; margin-left: auto; margin-top: 10px; }
+
+@keyframes rise { from { transform: translateY(14%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .mega, .me { animation: none; } }
+
+/* ───────────── INTRO (red slide) ───────────── */
+.intro {
+  background: var(--red-panel);
+  border-color: transparent;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 56px);
+  align-items: start;
+}
+.intro .cap { color: var(--paper); }
+.im {
+  font: 400 clamp(46px, 6vw, 80px)/1 var(--f-script);
+  margin: -.12em 0 14px clamp(20px, 8%, 90px);
+}
+.im small { font: 600 clamp(18px, 1.8vw, 24px)/1 var(--f-display); vertical-align: .9em; margin-right: .25em; letter-spacing: .02em; }
+.intro p.about { max-width: 58ch; font-size: clamp(15px, 1.3vw, 17px); }
+.facts-title { font: 900 18px/1 var(--f-display); font-variation-settings: "wdth" 125; letter-spacing: .04em; margin: clamp(22px, 3vw, 34px) 0 10px; }
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 4px 18px; margin: 0; font-size: 15px; }
+.facts dt { font-weight: 600; }
+.facts dd { margin: 0; }
+.intro-figs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.intro-figs figure { margin: 0; background: var(--paper); padding: 8px; }
+.intro-figs figure:first-child { grid-column: 1 / -1; }
+.intro-figs img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.intro-figs figure:not(:first-child) img { aspect-ratio: 1; }
+
+/* ───────────── CV ───────────── */
+.cv { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); }
+.cv h2 { font: 900 clamp(22px, 2.4vw, 30px)/1 var(--f-display); font-variation-settings: "wdth" 125; text-transform: uppercase; letter-spacing: .01em; margin-bottom: 18px; }
+.cv h2 .th { font: 600 14px/1 var(--f-thai); color: var(--muted); letter-spacing: 0; margin-left: 10px; vertical-align: middle; }
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+.timeline li { display: grid; grid-template-columns: 9.5em 1fr; gap: 4px 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+.when { font: 600 13px/1.5 var(--f-display); letter-spacing: .04em; color: var(--red); font-variant-numeric: tabular-nums; }
+.where { font: 600 17px/1.4 var(--f-thai); }
+.what { color: var(--muted); font-size: 15px; margin-top: 4px; }
+.cv-col { display: grid; gap: 40px; align-content: start; min-width: 0; }
+.skills { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.skills li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.tool { border: 1px solid var(--line); padding: 12px 14px; display: grid; gap: 2px; }
+.tool b { font: 900 22px/1 var(--f-display); font-variation-settings: "wdth" 115; color: var(--paper); }
+.tool span { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+/* ───────────── PROJECTS ───────────── */
+.proj { display: grid; gap: clamp(20px, 3vw, 36px); }
+.proj-head { position: relative; display: grid; }
+.outline {
+  font: 900 clamp(30px, 8.2vw, 112px)/.86 var(--f-display);
+  font-variation-settings: "wdth" 125;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  color: transparent;
+  -webkit-text-stroke: 1.4px rgba(244, 239, 235, .5);
+  white-space: nowrap;
+}
+.proj-script {
+  font: 400 clamp(34px, 4.8vw, 64px)/1 var(--f-script);
+  color: var(--paper);
+  margin: -.62em 0 0 clamp(24px, 30%, 420px);
+  position: relative;
+}
+.proj-intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 32px; align-items: end; }
+.proj-intro p { max-width: 62ch; color: var(--paper); }
+.drive {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 600 12px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; color: var(--paper);
+  border: 1px solid var(--line); padding: 12px 16px; white-space: nowrap;
+}
+.drive:hover { border-color: var(--red); color: var(--red); }
+
+.sub {
+  display: flex; align-items: baseline; gap: 12px;
+  font: 600 13px/1.4 var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
+.sub::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+/* video cards */
+.feature { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: clamp(16px, 2.4vw, 32px); align-items: end; }
+.feature .vcard .vframe { aspect-ratio: 16 / 9; }
+.feature .vcard > div:last-child { display: none; }
+.feature-copy { display: grid; gap: 12px; padding-bottom: 6px; }
+.feature-copy .big { font: 900 clamp(26px, 3vw, 40px)/1 var(--f-display); font-variation-settings: "wdth" 125; text-transform: uppercase; }
+.vgrid { display: grid; gap: clamp(10px, 1.4vw, 16px); }
+.vgrid.wide { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.vgrid.tall { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.vgrid.fives { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1100px) {
+  .vgrid.fives { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vgrid.fives > :first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) { .vgrid.fives { grid-template-columns: minmax(0, 1fr); } }
+.vcard { display: grid; gap: 8px; text-decoration: none; color: inherit; min-width: 0; }
+.vframe { position: relative; overflow: hidden; background: #000; border: 1px solid var(--line); aspect-ratio: 16 / 9; }
+.tall .vframe { aspect-ratio: 9 / 16; }
+.vframe video { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .1, 1); }
+.vcard:hover video { transform: scale(1.03); }
+.vbadge {
+  position: absolute; left: 8px; bottom: 8px;
+  font: 600 11px/1 var(--f-display); letter-spacing: .12em; text-transform: uppercase;
+  background: rgba(0, 0, 0, .66); color: var(--paper); padding: 7px 9px;
+}
+.vcard:hover .vbadge { background: var(--red); }
+.vtitle { font: 600 15px/1.35 var(--f-thai); }
+.vmeta { font-size: 13px; color: var(--muted); line-height: 1.4; font-variant-numeric: tabular-nums; }
+
+/* filters */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: 500 14px/1 var(--f-body); color: var(--muted);
+  background: transparent; border: 1px solid var(--line); padding: 9px 14px; cursor: pointer;
+}
+.chip:hover { color: var(--paper); }
+.chip[aria-pressed="true"] { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.chip .n { font-variant-numeric: tabular-nums; opacity: .6; margin-left: 4px; }
+
+/* masonry walls */
+.wall { columns: 4 140px; column-gap: 12px; }
+.wall.photos { columns: 3 140px; }
+.tile {
+  break-inside: avoid; display: block; width: 100%; margin: 0 0 12px;
+  padding: 0; border: 0; background: #000; cursor: zoom-in; position: relative; overflow: hidden;
+}
+.tile img { width: 100%; height: auto; transition: transform .5s cubic-bezier(.2, .7, .1, 1), filter .4s; }
+.tile:hover img { transform: scale(1.025); }
+.tile .tcap {
+  position: absolute; inset: auto 0 0 0; padding: 26px 10px 9px; text-align: left;
+  font: 500 13px/1.35 var(--f-body); color: var(--paper);
+  background: linear-gradient(transparent, rgba(0, 0, 0, .78));
+  transform: translateY(101%); transition: transform .3s;
+}
+.tile:hover .tcap, .tile:focus-visible .tcap { transform: none; }
+@media (hover: none) { .tile .tcap { transform: none; } }
+
+/* ───────────── CONTACT ───────────── */
+.contact { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; background: #000; }
+.together { font: 900 clamp(36px, 5.6vw, 76px)/.9 var(--f-display); font-variation-settings: "wdth" 125; text-transform: uppercase; }
+.together .script { font-size: .62em; color: var(--red); margin-left: .1em; vertical-align: .25em; }
+.contact-list { list-style: none; margin: clamp(22px, 3vw, 36px) 0 0; padding: 0; display: grid; }
+.contact-list li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); }
+.contact-list .k { color: var(--muted); font-size: 14px; }
+.contact-list .v { font: 600 clamp(15px, 1.5vw, 19px)/1.3 var(--f-body); overflow-wrap: anywhere; text-decoration: none; user-select: all; }
+.contact-list a.v:hover { color: var(--red); }
+.copy {
+  font: 600 11px/1 var(--f-display); letter-spacing: .12em; text-transform: uppercase;
+  background: transparent; color: var(--paper); border: 1px solid var(--line); padding: 9px 11px; cursor: pointer;
+}
+.copy:hover { border-color: var(--paper); }
+.sheet { background: var(--paper); padding: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sheet img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 13px; padding-top: 8px; }
+
+/* ───────────── LIGHTBOX ───────────── */
+.lb { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; color: var(--paper); }
+.lb::backdrop { background: rgba(6, 4, 4, .94); }
+.lb-inner { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 12px; padding: max(14px, env(safe-area-inset-top, 0px)) 16px max(14px, env(safe-area-inset-bottom, 0px)); }
+.lb-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.lb-count { font: 600 12px/1 var(--f-display); letter-spacing: .14em; font-variant-numeric: tabular-nums; color: var(--muted); }
+.lb-img { min-height: 0; display: grid; place-items: center; }
+.lb-img img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+.lb-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.lb-cap { font: 500 15px/1.4 var(--f-body); }
+.lb-nav { display: flex; gap: 8px; }
+.lb button, .lb a.drive { font: 600 12px/1 var(--f-display); letter-spacing: .12em; text-transform: uppercase; }
+.lb button { background: transparent; color: var(--paper); border: 1px solid var(--line); padding: 11px 14px; cursor: pointer; }
+.lb button:hover { border-color: var(--paper); }
+
+/* ───────────── RESPONSIVE ───────────── */
+@media (max-width: 900px) {
+  .intro, .cv, .contact, .feature { grid-template-columns: minmax(0, 1fr); }
+  .proj-intro { grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .proj-intro .drive { justify-self: start; }
+}
+@media (max-width: 760px) {
+  .hero { --mega: 11.2vw; }
+  .hero::before, .hero::after { display: none; }
+  .hero-nav ul { gap: 14px; }
+  .stage { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .mega { grid-column: 1; grid-row: 1; }
+  .disc { grid-column: 1; grid-row: 2; width: 100%; }
+  .me { grid-column: 1; grid-row: 2; width: 78%; justify-self: center; margin-top: calc(var(--mega) * -.85); }
+  .hero-right { grid-column: 1; grid-row: 3; text-align: left; padding: 22px 0 0; }
+  .hero-left { grid-column: 1; grid-row: 4; padding: 18px 0 28px; }
+  .lede { margin-left: 0; max-width: none; }
+  .sig { margin: 0; }
+  .timeline li { grid-template-columns: minmax(0, 1fr); }
+  .contact-list li { grid-template-columns: minmax(0, 1fr) auto; }
+  .contact-list .k { grid-column: 1 / -1; }
+  .proj-script { margin-left: 18%; }
+}
+</style>
+
+<div class="page">
+
+  <!-- HERO -->
+  <header class="panel hero" id="top">
+    <nav class="hero-nav" aria-label="เมนู">
+      <a class="mark" href="#top">pantakit</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="stage">
+      <h1 class="mega">Portfolio</h1>
+      <div class="disc" aria-hidden="true"></div>
+      <img class="me" src="img/portrait-v2.png" width="1198" height="1638" alt="พันธกิจ พุฒขาว">
+      <div class="hero-left">
+        <p class="eyebrow">Graphic Designer / Video Editor</p>
+        <p class="th-name">พันธกิจ พุฒขาว</p>
+        <p class="role">Graphic Designer / Editing · Property Auction House</p>
+        <dl class="tally">
+          <div><dt>งานกราฟิก</dt><dd>90+</dd></div>
+          <div><dt>ภาพถ่าย</dt><dd>48</dd></div>
+          <div><dt>วิดีโอ</dt><dd>40+</dd></div>
+        </dl>
+      </div>
+      <div class="hero-right">
+        <p class="sig">Pantakit</p>
+        <p class="lede">กราฟิกดีไซเนอร์และวิดีโอเอดิเตอร์ ทำได้ทั้งภาพนิ่งและวิดีโอ ตั้งแต่โปสเตอร์ แบนเนอร์ สื่อโซเชียล ไปจนถึง Motion Graphics ที่ช่วยให้ข้อมูลน่าสนใจและเข้าใจง่ายขึ้น</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="panel intro" id="about" aria-labelledby="about-h">
+    <div>
+      <h2 class="cap" id="about-h">Introduction</h2>
+      <p class="im"><small>I'm</small>Nam</p>
+      <p class="about">Graphic Designer และ Video Editor ที่เข้าใจหลักการออกแบบ (Design Principles) สร้างสรรค์สื่อได้ทั้งภาพนิ่งและวิดีโอ มีประสบการณ์ออกแบบกราฟิก ตัดต่อวิดีโอ และทำ Motion Graphics ทั้งงานสื่อประชาสัมพันธ์ของสถานีโทรทัศน์ และคอนเทนต์อสังหาริมทรัพย์สำหรับโซเชียลมีเดีย</p>
+      <p class="facts-title">PROFILE</p>
+      <dl class="facts">
+        <dt>ชื่อเล่น</dt><dd>น้ำ</dd>
+        <dt>อายุ</dt><dd>22 ปี</dd>
+        <dt>ตำแหน่ง</dt><dd>Graphic Designer / Video Editor</dd>
+        <dt>พื้นที่</dt><dd>ปากเกร็ด, นนทบุรี</dd>
+      </dl>
+    </div>
+    <div class="intro-figs">
+      <figure><img src="img/ph-20.jpg" alt="ภาพสินค้าน้ำหอม LALI บนกระดานหมากรุก" loading="lazy"></figure>
+      <figure><img src="img/p-02.jpg" alt="โปสเตอร์ LALI Velvet Noir" loading="lazy"></figure>
+      <figure><img src="img/ph-06.jpg" alt="ภาพสินค้ารองเท้าผ้าใบ" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section class="panel cv" aria-label="ประวัติและทักษะ">
+    <div class="cv-col">
+      <div>
+        <h2>Experience <span class="th">ประวัติการทำงาน</span></h2>
+        <ol class="timeline">
+          <li>
+            <span class="when">เม.ย. 2569 – ปัจจุบัน</span>
+            <div>
+              <p class="where">Property Auction House Co., Ltd.</p>
+              <p class="what">Graphic Designer / Editing · ตัดต่อและผลิตวิดีโอสำหรับคอนเทนต์ด้านอสังหาริมทรัพย์และการประมูลทรัพย์ สร้าง Motion Graphics ให้ข้อมูลน่าสนใจและเข้าใจง่าย ทำงานร่วมกับทีม Content และฝ่ายที่เกี่ยวข้องเพื่อพัฒนาสื่อให้ตรงตามวัตถุประสงค์ของแต่ละโปรเจกต์</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">ก.ย. 2568 – มี.ค. 2569</span>
+            <div>
+              <p class="where">ฝึกงาน สถานีวิทยุโทรทัศน์แห่งประเทศไทย จังหวัดสงขลา</p>
+              <p class="what">ออกแบบสื่อประชาสัมพันธ์ทั้ง Online และ Offline เช่น Banner, Poster และสื่อสำหรับ Social Media สร้าง Motion Graphics เพื่อเพิ่มความน่าสนใจและช่วยสื่อสารข้อมูลให้เข้าใจง่าย</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div>
+        <h2>Education <span class="th">ประวัติการศึกษา</span></h2>
+        <ol class="timeline">
+          <li>
+            <span class="when">2022 – 2026</span>
+            <div>
+              <p class="where">มหาวิทยาลัยเทคโนโลยีราชมงคลศรีวิชัย สงขลา</p>
+              <p class="what">คณะครุศาสตร์อุตสาหกรรม · สาขาเทคโนโลยีสื่อสารมวลชน</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2019 – 2022</span>
+            <div>
+              <p class="where">วิทยาลัยเทคนิคพัทลุง</p>
+              <p class="what">สาขาคอมพิวเตอร์ธุรกิจ</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="cv-col">
+      <div>
+        <h2>Skills <span class="th">ทักษะ</span></h2>
+        <ul class="skills">
+          <li>ความรู้ความเข้าใจในการออกแบบกราฟิก</li>
+          <li>ใช้โปรแกรมด้านการออกแบบและตัดต่อ</li>
+          <li>การจัดการโครงการและการทำงานร่วมกับทีม</li>
+          <li>การคิดคอนเทนต์และวิเคราะห์กลุ่มเป้าหมาย</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Software <span class="th">โปรแกรม</span></h2>
+        <div class="tools">
+          <div class="tool"><b>Pr</b><span>Premiere Pro · Video Editing</span></div>
+          <div class="tool"><b>Ae</b><span>After Effects · Motion Graphics</span></div>
+          <div class="tool"><b>Ps / Ai</b><span>Photoshop / Illustrator · Graphic Design</span></div>
+          <div class="tool"><b>3D</b><span>Blender</span></div>
+          <div class="tool"><b>AI</b><span>ChatGPT · Claude</span></div>
+          <div class="tool"><b>Ads</b><span>Meta Ads Manager · GA4</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="work" class="stack">
+
+    <!-- PROJECT 01 -->
+    <section class="panel proj" aria-labelledby="p1">
+      <header class="proj-head">
+        <h2 class="outline" id="p1">Project 01</h2>
+        <p class="proj-script">Video Editing</p>
+      </header>
+      <div class="proj-intro">
+        <p>ตัดต่อวิดีโอโฆษณาสินค้า สปอตประชาสัมพันธ์ และรายการโทรทัศน์ช่วงฝึกงานที่ สทท.สงขลา รวมถึงคลิปแนวตั้งสำหรับ Reels และ TikTok คลิกที่คลิปเพื่อดูเวอร์ชันเต็มบน Google Drive</p>
+        <a class="drive" href="https://drive.google.com/drive/folders/14o7uQjDU5wW3LEdZi9BfSZpE6zjHIakb" target="_blank" rel="noopener">ดูทั้งหมดใน Drive ↗</a>
+      </div>
+      <div class="feature" id="feature"></div>
+      <p class="sub">Product &amp; Broadcast</p>
+      <div class="vgrid wide fives" id="v-wide"></div>
+      <p class="sub">Vertical · Reels</p>
+      <div class="vgrid tall" id="v-tall"></div>
+    </section>
+
+    <!-- PROJECT 02 -->
+    <section class="panel proj" aria-labelledby="p2">
+      <header class="proj-head">
+        <h2 class="outline" id="p2">Project 02</h2>
+        <p class="proj-script">Property Auction House</p>
+      </header>
+      <div class="proj-intro">
+        <p>งานปัจจุบัน ผลิตคลิปแนะนำบ้าน คอนโด และทาวน์โฮมสำหรับ TikTok พร้อมโปสเตอร์ประกาศเช่า-ขาย และสื่อวันสำคัญของบริษัท ใช้ Motion Graphics ช่วยเล่าราคา ขนาด และทำเลให้ดูง่ายในไม่กี่วินาที</p>
+        <a class="drive" href="https://drive.google.com/drive/folders/1LfeRRBP9ciiMq5FblN51ZvbqMvB9Jlcy" target="_blank" rel="noopener">คลิป TikTok ใน Drive ↗</a>
+      </div>
+      <p class="sub">TikTok · Property tours</p>
+      <div class="vgrid tall" id="v-pah"></div>
+      <p class="sub">Posters &amp; Social</p>
+      <div class="wall" id="w-pah"></div>
+    </section>
+
+    <!-- PROJECT 03 -->
+    <section class="panel proj" aria-labelledby="p3">
+      <header class="proj-head">
+        <h2 class="outline" id="p3">Project 03</h2>
+        <p class="proj-script">Graphic Design</p>
+      </header>
+      <div class="proj-intro">
+        <p>ออกแบบสื่อประชาสัมพันธ์ทั้ง Online และ Offline เช่น Banner, Poster และสื่อสำหรับ Social Media ให้แบรนด์น้ำหอม คาเฟ่ ที่พัก และสถาบันสอนเทรด คลิกภาพเพื่อดูขนาดเต็ม</p>
+        <a class="drive" href="https://drive.google.com/drive/folders/1_swBjWmTesjYZBcW-ZWMUpu4zuDwVfwn" target="_blank" rel="noopener">โปสเตอร์ทั้งหมดใน Drive ↗</a>
+      </div>
+      <div class="chips" id="c-posters" role="group" aria-label="กรองตามแบรนด์"></div>
+      <div class="wall" id="w-posters"></div>
+    </section>
+
+    <!-- PROJECT 04 -->
+    <section class="panel proj" aria-labelledby="p4">
+      <header class="proj-head">
+        <h2 class="outline" id="p4">Project 04</h2>
+        <p class="proj-script">Motion Graphics</p>
+      </header>
+      <div class="proj-intro">
+        <p>Motion Graphics ที่ช่วยเพิ่มความน่าสนใจและสื่อสารข้อมูลให้เข้าใจง่าย ทั้งกราฟิกประกอบคลิปอธิบายเรื่องการเงินและอสังหาฯ และงานทดลองแนวตั้งสำหรับโซเชียล</p>
+        <a class="drive" href="https://drive.google.com/drive/folders/1arHj1X9kJHoDTrb9Y5qypELmuw6d8qIC" target="_blank" rel="noopener">กราฟิกประกอบคลิปใน Drive ↗</a>
+      </div>
+      <div class="vgrid tall" id="v-motion"></div>
+      <div class="vgrid wide" id="v-comp"></div>
+    </section>
+
+    <!-- PROJECT 05 -->
+    <section class="panel proj" aria-labelledby="p5">
+      <header class="proj-head">
+        <h2 class="outline" id="p5">Project 05</h2>
+        <p class="proj-script">Photography</p>
+      </header>
+      <div class="proj-intro">
+        <p>ถ่ายภาพสินค้า อาหาร พอร์ตเทรต และสตรีทยามค่ำคืน ภาพสินค้าหลายชุดถูกนำไปใช้ต่อในโปสเตอร์และคลิปโฆษณา</p>
+        <a class="drive" href="https://drive.google.com/drive/folders/1ET4NwTE4KiOjbXUH5WLaW3sfiCSz-4ON" target="_blank" rel="noopener">ภาพถ่ายทั้งหมดใน Drive ↗</a>
+      </div>
+      <div class="chips" id="c-photos" role="group" aria-label="กรองตามประเภทภาพ"></div>
+      <div class="wall photos" id="w-photos"></div>
+    </section>
+
+  </div>
+
+  <!-- CONTACT -->
+  <section class="panel contact" id="contact" aria-labelledby="ct">
+    <div>
+      <h2 class="together" id="ct">Let's <span class="script">work</span><br>Together</h2>
+      <ul class="contact-list">
+        <li><span class="k">โทรศัพท์</span><a class="v" href="tel:0805639127">080-563-9127</a><button class="copy" type="button" data-copy="080-563-9127">คัดลอก</button></li>
+        <li><span class="k">อีเมล</span><a class="v" href="mailto:pantakitphootkhaw@gmail.com">pantakitphootkhaw@gmail.com</a><button class="copy" type="button" data-copy="pantakitphootkhaw@gmail.com">คัดลอก</button></li>
+        <li><span class="k">พื้นที่</span><span class="v">ปากเกร็ด, นนทบุรี</span><span></span></li>
+        <li><span class="k">ผลงานทั้งหมด</span><a class="v" href="https://drive.google.com/drive/folders/14o7uQjDU5wW3LEdZi9BfSZpE6zjHIakb" target="_blank" rel="noopener">Google Drive ↗</a><span></span></li>
+      </ul>
+    </div>
+    <div class="sheet" aria-hidden="true">
+      <img src="img/ph-13.jpg" alt="" loading="lazy">
+      <img src="img/ph-23.jpg" alt="" loading="lazy">
+      <img src="img/ph-28.jpg" alt="" loading="lazy">
+      <img src="img/ph-21.jpg" alt="" loading="lazy">
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>© 2026 Pantakit Phootkhaw</span>
+    <a href="#top">กลับด้านบน ↑</a>
+  </footer>
+</div>
+
+<dialog class="lb" id="lb" aria-label="ดูภาพขนาดเต็ม">
+  <div class="lb-inner">
+    <div class="lb-top">
+      <span class="lb-count" id="lb-count"></span>
+      <button type="button" id="lb-close">ปิด ✕</button>
+    </div>
+    <div class="lb-img"><img id="lb-img" alt=""></div>
+    <div class="lb-bottom">
+      <p class="lb-cap" id="lb-cap"></p>
+      <div class="lb-nav">
+        <a class="drive" id="lb-drive" href="#" target="_blank" rel="noopener">ไฟล์ต้นฉบับ ↗</a>
+        <button type="button" id="lb-prev" aria-label="ภาพก่อนหน้า">←</button>
+        <button type="button" id="lb-next" aria-label="ภาพถัดไป">→</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const DRIVE = id => `https://drive.google.com/file/d/${id}/view`;
+
+  /* ---------- data: videos (6-second previews; the card links to the full cut on Drive) ---------- */
+  const V = {
+    reel:        ["1By3FjaLjTcyAh4L29c9_zOlg13CPydsb", "Presentation Portfolio", "Showreel · 0:30"],
+    shoes:       ["1JlygPn2y8WAPqLBwaf1dq8r0PIVF8kDe", "Sneaker Product Film", "โฆษณาสินค้า · 0:23"],
+    iphone:      ["1nuX7sEPqx-dvrk__WpdsmOyzR-pQCDGU", "iPhone 17", "Product motion · 0:08"],
+    safedrive:   ["1wiggTD0z5_1VJ2As04OaKdU4GgoT1-AT", "สปอตขับขี่ปลอดภัย", "สปอตประชาสัมพันธ์ · 0:43"],
+    prosecutor:  ["1dcmrcq5FyY1J5NkhWrDstOPwnMwr1pYB", "อัยการ 3 นาที ตอน พ.ร.บ.คุ้มครองผู้ประสบภัยจากรถ", "รายการ สทท.สงขลา · 3:32"],
+    gamble:      ["10iJAoDRhHVIa-QYO7BwJC0_q1pEBDMWY", "สปอตการพนัน", "สปอตประชาสัมพันธ์ · 1:35"],
+    perfume1:    ["1RtahImwEhTCaPQLPgtuvk4avKei3gmof", "LALI Perfume", "Product film · 0:22"],
+    perfume2:    ["1kUyVNyaYIFAYfQh3gN7tMnC47ElbxOYB", "LALI โปร 1 แถม 1", "Promo reel · 0:24"],
+    smallroom:   ["1KjaoPqPQUhMH1okerirxOIilVIf3pmGo", "Small Room EP.1", "รีวิวที่พักพัทยา · 0:34"],
+    ep2:         ["1ay2CTrh-leCCv1kKpKFwKsfbTEUzmsqv", "Small Room EP.2", "รีวิวที่พักพัทยา · 0:40"],
+    baggio:      ["1Nsbxv9tvRhFdmzg6kCjt5-O4KhNlCFui", "Baggio's FIGC Master Plan", "Sport explainer · 1:26"],
+    "tt-metrosky":  ["11UUomL3J3HyarbLGHUXgPPbBDRsdkf72", "Metro Sky ประชาชื่น", "ให้เช่าคอนโด 25,000 · 0:42"],
+    "tt-pleno":     ["1D28IIhKvwPi26XEv_Z1A7P-SBqaMu-Wq", "PLENO 2 สุขุมวิท", "ให้เช่าบ้าน 32,000 · 0:59"],
+    "tt-upekkamai": ["1HL69emWVVUBQuDa5TlWzAtVxidWrrws7", "Up Ekkamai", "2 ห้องนอน 67 ตร.ม. · 1:00"],
+    "tt-thonglor":  ["12_YeWPEc3HHGFluzqv6HG6iBxwZW9ABT", "M Thonglor", "คอนโด Pet Friendly 50,000 · 0:44"],
+    "tt-fortune":   ["16jPTCD02WK1nErYDQttru5OAdkJHCvxu", "ทาวน์โฮม หลัง Fortune รัชดา", "ทาวน์โฮมทำเลทอง · 0:30"],
+    "tt-mantana":   ["1xCdgOkQUzV2XCLOoKUGu_kZzfhVZdr4f", "มัณฑนา 2 อ่อนนุช-วงแหวน", "บ้านเดี่ยวหรู · 0:51"],
+    motion:      ["15A45VP_BPQ2RpyVMRDIgNFN_pOKssjbu", "Motion Video", "Motion graphics · 0:08"],
+    stars:       ["1CoCY6LFS_Cq4aes8MejyHBEcft34l7Xn", "ดวงดาว", "Motion · 0:08"],
+    city:        ["1AY3sH45kYumqm6wkAJFGKKUDE3oDDb_I", "เมือง", "Motion"],
+    sea:         ["1pi5ASIBBR-ES_UDczFrK0E_ig1IE5vNU", "ทะเล", "Motion · 0:38"],
+    comp1:       ["1CkMSu8HSEwy6jsrkxlNbwxBvTQk5Q4fk", "สิ่งที่ต้องตาม", "กราฟิกประกอบคลิป"],
+    comp3:       ["1gAQ-YFwFXEXhLrP0WOMDTXXE-oW04rGT", "ค่าเดินทาง", "กราฟิกประกอบคลิป"],
+    comp42:      ["18CFiMBejjlVFQ-ze-pV0GhXw8wSn-vL-", "ประชุมทีม", "กราฟิกประกอบคลิป"]
+  };
+
+  /* ---------- data: images [file, drive id, caption, group] ---------- */
+  const POSTERS = [
+    ["p-02", "18BieUCDeJuTBNmpIU57__lJdhCjQ4M81", "LALI · Velvet Noir", "LALI"],
+    ["p-16", "1XgRvmQv1TD42Ju1-hSxd0aN8XN_6crzK", "Legacy Prime Academy · แพ็กเกจ 6 เดือน", "Legacy Prime"],
+    ["p-41", "1LnkvRpc8bdNWH-dxTyTkBCahmq11LCBr", "หอมละมุน · เมนูเครื่องดื่ม", "หอมละมุน"],
+    ["p-01", "13TSxX1Q1vvOgukahVhcucHpFhJ2MNsj6", "Small Room · พัทยาคุ้มกว่าคุ้ม", "Small Room"],
+    ["p-68", "1XDUXJqi5dsVRhNYGIfiHo3VFvYGU27IX", "Defender · Sport poster", "อื่นๆ"],
+    ["p-59", "1le43RRWWHDk2x25qRa48swj1NoPc8voK", "LALI · โปรวันแม่ 359.-", "LALI"],
+    ["p-10", "1omUDIrl13ZgktSu9E1tKPgXGOvbFl0f3", "Legacy Prime Academy · รู้จุดเข้า รู้จุดออก", "Legacy Prime"],
+    ["p-12", "1Pqpl2mW3jvodXjNRVnfK1umTeRaMTc8l", "หอมละมุน · ชาไทย", "หอมละมุน"],
+    ["p-03", "1zGRvdCh4h5EIiEayk48oCvjozMik9RYi", "LALI · Velvet Noir 189.-", "LALI"],
+    ["p-17", "1wjKybRs6A7-LGI3WPcVf4Fs7smE5znbF", "Legacy Prime Academy · เริ่มลงทุนอย่างมั่นใจ", "Legacy Prime"],
+    ["p-14", "17u1dfF4fBV6Aq2C3cPQp3MzEaw4I1Ud0", "หอมละมุน · เข้มข้นถึงใจ", "หอมละมุน"],
+    ["p-05", "1zzwqPQsUgML8tu1DeikTQ2GR58uxLdwm", "Small Room · เที่ยวพัทยา", "Small Room"],
+    ["p-65", "1lWm-kmPu_KBvOTvcpuxDCe7rfq8M0o6k", "LALI · วันแม่ เปลี่ยนคำว่ารักให้เป็นกลิ่น", "LALI"],
+    ["p-23", "1BhRdUdjmR9Opk2AzaCfgEk7-cfVbowuh", "Legacy Prime Academy · เทรดแม่น เทรดตรง", "Legacy Prime"],
+    ["p-48", "19HXfEL3ACOJvrFoFe3yHJJVuKvqmf2Ry", "หอมละมุน · กาแฟเย็น", "หอมละมุน"],
+    ["p-67", "18SORCl9QMgqimrTrVnInGfvaPfj_9iBj", "Food Menu", "อื่นๆ"],
+    ["p-15", "1rSHiO6poTmOG-vfRQsaVwIh2uGeLTyzd", "LALI · สุภาพบุรุษ", "LALI"],
+    ["p-32", "1w5cBAiYmJCSbr4s0h2x1EEZcsVR27F9u", "Legacy Prime Academy · อินดิเคเตอร์", "Legacy Prime"],
+    ["p-57", "15rX7GR3D4y82wPohuLoGecyGMVV7OoAu", "หอมละมุน · ชานมไข่มุก", "หอมละมุน"],
+    ["p-61", "1MB3sSq1PWZN-ozdwkQlVXKIZZ0OiyDNZ", "LALI · โปรวันแม่", "LALI"],
+    ["p-38", "1XSUNJzChcVDCDszQVAC4NLPaxjqXq-WD", "Legacy Prime Academy · ทุกวินาทีคือจังหวะการเทรด", "Legacy Prime"],
+    ["p-51", "1PWa0iM2HEjrckHKxXBkTql_RvFnWErK9", "หอมละมุน · ลด 10% ทุกวันศุกร์", "หอมละมุน"],
+    ["p-53", "1ifwS6ppEn3jmem6EfSknMaRvE5Y-AlLh", "หอมละมุน · โปรโมชั่นประจำเดือน", "หอมละมุน"],
+    ["p-55", "1TqS-oImEFKz_p23BAtPNJ7cZPYUWGrv0", "หอมละมุน · Signature", "หอมละมุน"],
+    ["p-63", "1Qne0hoGBUfYutPvz0E3E7ECQV4iTAyQC", "หอมละมุน · ชามะนาว", "หอมละมุน"],
+    ["p-70", "1rjEDCFPiJjMXEhtaoJjoZihpZs3ymyAz", "นามบัตร", "อื่นๆ"]
+  ];
+  const PAH = [
+    ["pah-08", "1eJX_WVJfK3-uw5KO93ZUKBV3CiP-f2C8", "UP Ekkamai · ให้เช่า 50,000"],
+    ["pah-09", "1h6Vo25dgQC6OhYP6aaHcPlaG6-Xo7ff7", "PAH · รับฝากขาย-เช่า อสังหาฯ ทุกประเภท"],
+    ["pah-05", "197whffejGetK-CSjbNy-GnkffjjeD86H", "ให้เช่าบ้านพร้อมอยู่ PLENO 2"],
+    ["pah-07", "1_DtBjFh_JZhQFXr5pM0ZMwGw7EIdMp5k", "ทาวน์โฮม 3 ชั้น · 4.9 ล้าน"],
+    ["pah-16", "1Vy4izPnSMLlh_HGdIvqZIt-9evqObdnp", "คอนโด Pet Friendly · 50,000"],
+    ["pah-10", "1CKa4Ug85KV-MNyJhHWnoGLzlEl9FH8HH", "พ.ร.บ.เวนคืนที่ดิน"],
+    ["pah-02", "14_mkUTWH2GT24fx2GQEMwjglRQ-m_cE0", "ให้เช่าคอนโด · 25,000/เดือน"],
+    ["pah-17", "1hSHlVh_fhaTMsyrhty1O0k0SUee6F-GA", "Home Office 4 ชั้น"],
+    ["pah-01", "1fh4qqLbPOaXsh9z-jl0hff6zTd32exgU", "ให้เช่าทาวน์โฮม 3 ชั้น · 28,000"],
+    ["pah-24", "1RlIRG7GOoEvQylengQiHb0_O2Nbrb6fk", "แปลนบ้าน Type A"],
+    ["pah-14", "1cHciVr4KO9WpCVxtILJ-Mn5kbRHCg9uX", "ให้เช่าคอนโด · 20,000"],
+    ["pah-18", "15l_sp_nGTth_gENyEr-wKVFAjBK7xX0B", "ให้เช่าทาวน์โฮม 2 ชั้น · 30,000"],
+    ["pah-19", "1PamUkYpkKYa4nKyl7679xBeVHIC6Bima", "ประกาศวันหยุดบริษัท"],
+    ["pah-20", "1LjPvuwHcqctKpBjnxXo8_VMg9ndPwi1t", "วันแรงงานแห่งชาติ"],
+    ["pah-21", "1_3YTUWU5o-twWkEMvWX6sm7rRUoy8R-J", "วันเข้าพรรษา"]
+  ];
+  const PHOTOS = [
+    ["ph-20", "1cEICts5S6NlkJcbr-AefHm1cZlumvRsx", "LALI · Still life", "Product"],
+    ["ph-28", "1vzgnThnGHFQS367xGVqfaWJmOa3Nmbo6", "Night street", "Street"],
+    ["ph-36", "1kO6gCJso_pAvijW4zTap3HtcyGm7-ARs", "Waffle & berries", "Food"],
+    ["ph-13", "1Si8yYkp5EqhIrpyc4B1V-dZ2CTTZkEiz", "Portrait · Pink set", "Portrait"],
+    ["ph-06", "1HIJSgiQamaufAY2T0PEhpuR5rZsp9HZ1", "Sneakers · Box", "Product"],
+    ["ph-23", "1vIpj-OmyLoljupdmqlxiMoswuUr4Iqp9", "Sauvage · Studio", "Product"],
+    ["ph-26", "1kP467hR_vUzxeAKenLMHqso0lap0UQNU", "Pink taxi", "Street"],
+    ["ph-00", "14E_Idh7s-EWazbNhQ_WWwKI-y3XojDCh", "Croissant basket", "Food"],
+    ["ph-18", "1oKl1tA_pH2-rTIdGgUWhqJJtWb-fEkyw", "LALI · Hand", "Product"],
+    ["ph-16", "1Yns2kx15TzNoWHa1Pz534hxbLTGDScL5", "Portrait · 20th birthday", "Portrait"],
+    ["ph-04", "1LQ1oC8MRCSVetnuJcRc_0Vrgaay_xZKm", "Neon signs", "Street"],
+    ["ph-22", "1_vGnWvvI0Nl56j_zLy4un0NpQgHZRu4Y", "Sauvage · Red rose", "Product"],
+    ["ph-39", "1sjEuRT8_8oa9YIfp4VNyTrMBLYoS6Gnr", "Waffle · Flat lay", "Food"],
+    ["ph-30", "1ZBED4mrdDZY4UE1AGwoCGtV5JBBcHgMf", "Crosswalk at night", "Street"],
+    ["ph-21", "1NRfB87I606ALci91QCiTceaNrFKdgSSj", "LALI · Wrist", "Product"],
+    ["ph-15", "1bHdvb0EdBEhPts7dNRX1sPf-wzjT2jgV", "Portrait · Tinsel", "Portrait"],
+    ["ph-08", "1s9EVx4nGdLQs6TWizebrem3Hl2mef4yu", "Sneakers · Side", "Product"],
+    ["ph-31", "1C6yJHD3L1ctfAlFMuoP5ckNNmFevSuQU", "Alley light", "Street"],
+    ["ph-24", "19GGhvmkTf6U3CBnVo-U5KUzIjG3CfBGx", "Sauvage · Silk", "Product"],
+    ["ph-44", "1nvayEIfYPeIwrYsKqCkHhOnEVWCaqdMv", "Waffle & drink", "Food"],
+    ["ph-01", "1K60-WviRkzYJtlcpV-HW8WC6yaHQFcEq", "Live music · Sunset", "Event"],
+    ["ph-19", "1yX0tXav3gdl4gLlZt6T-6mVRtSDzNbM2", "LALI · Satin", "Product"],
+    ["ph-29", "1Y2bLhYbLswy67shQfAj-DzVA50H1IJma", "Night market", "Street"],
+    ["ph-10", "1TZGLJUdcCZazNCoEB6yippytEhT3-4UF", "Sneakers · Red box", "Product"],
+    ["ph-33", "1vDD0iRDmVFh5luQuDaCeUV3KAs0LD5Tm", "Walking at night", "Street"],
+    ["ph-34", "1mKHx0pZ_fn6uNqpTmIBLo54FmSQHYwYB", "Interior · Kitchen bar", "Event"]
+  ];
+
+  /* ---------- video cards ---------- */
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function vcard(key, { badge = "▶ ดูเต็ม" } = {}) {
+    const [id, title, meta] = V[key];
+    const a = document.createElement("a");
+    a.className = "vcard";
+    a.href = DRIVE(id);
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.innerHTML = `<div class="vframe"><video muted loop playsinline preload="none" poster="vid/${key}.jpg" data-src="vid/${key}.mp4" aria-hidden="true"></video><span class="vbadge">${badge}</span></div>
+      <div><p class="vtitle"></p><p class="vmeta"></p></div>`;
+    a.querySelector(".vtitle").textContent = title;
+    a.querySelector(".vmeta").textContent = meta;
+    a.setAttribute("aria-label", `${title} — เปิดวิดีโอเต็มบน Google Drive`);
+    return a;
+  }
+  const fill = (sel, keys) => { const el = document.getElementById(sel); keys.forEach(k => el.appendChild(vcard(k))); };
+
+  const feat = document.getElementById("feature");
+  feat.appendChild(vcard("reel", { badge: "▶ Showreel" }));
+  feat.insertAdjacentHTML("beforeend", `<div class="feature-copy"><p class="eyebrow">Featured</p><p class="big">Presentation Portfolio</p><p>วิดีโอแนะนำตัวและรวมผลงาน ตัดต่อเอง ความยาว 30 วินาที</p></div>`);
+  fill("v-wide", ["shoes", "iphone", "safedrive", "prosecutor", "gamble"]);
+  fill("v-tall", ["perfume1", "perfume2", "smallroom", "ep2", "baggio"]);
+  fill("v-pah", ["tt-metrosky", "tt-pleno", "tt-upekkamai", "tt-thonglor", "tt-fortune", "tt-mantana"]);
+  fill("v-motion", ["motion", "stars", "city", "sea"]);
+  fill("v-comp", ["comp1", "comp3", "comp42"]);
+
+  // play previews only while on screen
+  const vids = [...document.querySelectorAll("video[data-src]")];
+  const load = v => { if (!v.src) v.src = v.dataset.src; };
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(({ target: v, isIntersecting }) => {
+        if (isIntersecting) { load(v); v.play().catch(() => {}); } else if (v.src) v.pause();
+      });
+    }, { threshold: .45 });
+    vids.forEach(v => io.observe(v));
+  } else {
+    vids.forEach(v => {
+      const card = v.closest(".vcard");
+      card.addEventListener("mouseenter", () => { load(v); v.play().catch(() => {}); });
+      card.addEventListener("mouseleave", () => v.pause());
+    });
+  }
+
+  /* ---------- image walls + lightbox ---------- */
+  const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img"),
+        lbCap = document.getElementById("lb-cap"), lbCount = document.getElementById("lb-count"),
+        lbDrive = document.getElementById("lb-drive");
+  let set = [], idx = 0;
+  const show = i => {
+    idx = (i + set.length) % set.length;
+    const [file, id, cap] = set[idx];
+    lbImg.src = `img/${file}.jpg`; lbImg.alt = cap;
+    lbCap.textContent = cap;
+    lbCount.textContent = `${String(idx + 1).padStart(2, "0")} / ${String(set.length).padStart(2, "0")}`;
+    lbDrive.href = DRIVE(id);
+  };
+  document.getElementById("lb-prev").onclick = () => show(idx - 1);
+  document.getElementById("lb-next").onclick = () => show(idx + 1);
+  document.getElementById("lb-close").onclick = () => lb.close();
+  lb.addEventListener("click", e => { if (e.target.classList.contains("lb-img") || e.target === lb) lb.close(); });
+  lb.addEventListener("keydown", e => { if (e.key === "ArrowLeft") show(idx - 1); if (e.key === "ArrowRight") show(idx + 1); });
+
+  function wall(sel, data) {
+    const el = document.getElementById(sel);
+    data.forEach(item => {
+      const [file, , cap, group] = item;
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "tile";
+      if (group) b.dataset.group = group;
+      b.innerHTML = `<img src="img/${file}.jpg" alt="" loading="lazy"><span class="tcap"></span>`;
+      b.querySelector("img").alt = cap;
+      b.querySelector(".tcap").textContent = cap;
+      b.addEventListener("click", () => {
+        set = data.filter(d => !d[3] || !el.dataset.filter || el.dataset.filter === "all" || d[3] === el.dataset.filter);
+        lb.showModal(); show(set.indexOf(item));
+      });
+      el.appendChild(b);
+    });
+  }
+  function chips(sel, wallSel, data, order) {
+    const box = document.getElementById(sel), w = document.getElementById(wallSel);
+    const groups = [["all", "ทั้งหมด", data.length], ...order.map(g => [g, g, data.filter(d => d[3] === g).length])];
+    groups.forEach(([val, label, n], i) => {
+      const c = document.createElement("button");
+      c.type = "button"; c.className = "chip"; c.setAttribute("aria-pressed", i === 0);
+      c.innerHTML = `${label}<span class="n">${n}</span>`;
+      c.addEventListener("click", () => {
+        box.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === c));
+        w.dataset.filter = val;
+        w.querySelectorAll(".tile").forEach(t => { t.hidden = val !== "all" && t.dataset.group !== val; });
+      });
+      box.appendChild(c);
+    });
+  }
+  wall("w-pah", PAH);
+  wall("w-posters", POSTERS);
+  wall("w-photos", PHOTOS);
+  chips("c-posters", "w-posters", POSTERS, ["LALI", "Legacy Prime", "หอมละมุน", "Small Room", "อื่นๆ"]);
+  chips("c-photos", "w-photos", PHOTOS, ["Product", "Food", "Portrait", "Street", "Event"]);
+
+  /* ---------- copy buttons ---------- */
+  document.querySelectorAll(".copy").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const text = btn.dataset.copy, label = btn.textContent;
+      const done = msg => { btn.textContent = msg; setTimeout(() => (btn.textContent = label), 1600); };
+      const fallback = () => {
+        const v = btn.parentElement.querySelector(".v"), r = document.createRange();
+        r.selectNodeContents(v); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        done("เลือกแล้ว");
+      };
+      try { navigator.clipboard.writeText(text).then(() => done("คัดลอกแล้ว"), fallback); } catch { fallback(); }
+    });
+  });
+})();
+</script>
+
+</body></html>
